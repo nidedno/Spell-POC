@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1921276059422315519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8153775337586786006}
+  - component: {fileID: 6394746175162599552}
+  m_Layer: 0
+  m_Name: SpellScroll
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8153775337586786006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921276059422315519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 215.43929, y: 4.691599, z: -75.839806}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6394746175162599552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921276059422315519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5134f46e60f70c43b76472d1642cff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireBallPrefab: {fileID: 8774573494015565943, guid: 2672bdd20f6f4a548a23c8b59a5addff, type: 3}
+  MagicRayPrefab: {fileID: 6082586537347848410, guid: f52417fce4194424e8487c2b0b4b29ce, type: 3}
+  FireStreamPrefab: {fileID: 731066550195459896, guid: 98eeb9123be531e43be87096565a0c07, type: 3}
+  Indicator: {fileID: 4582161988919397593, guid: cc5dc0ddd2d29d04f8ac9af8cdd7e9ba, type: 3}
+  area: 0
+  HowMuch: 1
+  move: 
