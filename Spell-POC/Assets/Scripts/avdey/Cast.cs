@@ -2,28 +2,37 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+
 public class Cast 
 {
 
-    private ISpellLogic _castLogic; // то как доставляется этот каст
+    public Cast follower;
+    
+    
+    public _Spell _owner{get;private set;}
 
-    private List<SpellAction> _spellActions; // список эффектов каста
+    private SpellLogic _castLogic; // пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
-    public CastTriggers _castTriggers = new CastTriggers(); // список тригерров подписчеков
+    private List<SpellAction> _spellActions; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+    //private List<Element> _spellElements;
 
-    // направление каста
+    public CastTriggers _castTriggers = new CastTriggers(); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     public Vector3 _startPoint = Vector3.zero, _direction = Vector3.up;
 
     private GameObject _castObject;
 
 
 
-    public Cast(ISpellLogic logic, List<SpellAction> actions)
+    public Cast(_Spell owner,SpellLogic logic, List<SpellAction> actions)
     {
+        _owner = owner;
         _castLogic = logic;
         _spellActions = actions;
         _castLogic.SetOwner(this);
-        // возможно будет больше конструкторов
+
+
     }
 
     public void SetDirection(Vector3 startPoint, Vector3 direction)
@@ -32,22 +41,20 @@ public class Cast
         _direction = direction;
     }
 
-    // собственно начинаем каст заклинания
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     
     public void StartCast()
     {
 
-       // _castObject = new GameObject("spell name + iteration [n]");
-
-
-
-        _castLogic.ApplyLogic(_startPoint, _direction);
-
+        //_castLogic.ApplyLogic(_startPoint, _direction);
+        _castLogic.ActivateLogic();
 
         Debug.Log("spell die");
 
        
     }
+
+    
 
 
     private void OnDestroy()

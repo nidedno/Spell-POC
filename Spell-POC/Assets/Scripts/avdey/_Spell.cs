@@ -7,24 +7,15 @@ public class _Spell : MonoBehaviour
 
     private List<Cast> _castQueue = new List<Cast>();
 
-
+    public Unit caster{get ; private set;}
 
     private void Start()
     {
-        // тестово создаем абстрактные касты с их эффектами и логикой доставки
+        //_castQueue.Add());
         
-        _castQueue.Add(new Cast( new BallSpellLogic(), new List<SpellAction>() ) );
-        _castQueue.Add(new Cast(new BallSpellLogic(), new List<SpellAction>()));
-        _castQueue.Add(new Cast(new BallSpellLogic(), new List<SpellAction>()));
-        _castQueue.Add(new Cast(new BallSpellLogic(), new List<SpellAction>()));
-        _castQueue.Add(new Cast(new BallSpellLogic(), new List<SpellAction>()));
 
-        // искусственно подписываем касты к другим по триггерам
-        _castQueue[0]._castTriggers.OnSpellDie += _castQueue[1].StartCast;
-        _castQueue[1]._castTriggers.OnSpellDie += _castQueue[2].StartCast;
-        _castQueue[2]._castTriggers.OnSpellDie += _castQueue[3].StartCast;
-        _castQueue[3]._castTriggers.OnSpellDie += _castQueue[4].StartCast;
-        
+
+        var cast = new Cast(this, new SelfLogic(),new List<SpellAction>());
 
     }
 
@@ -33,6 +24,10 @@ public class _Spell : MonoBehaviour
         _castQueue[0].SetDirection(startPoint, Direction);
         _castQueue[0].StartCast();
         
+    }
+
+    public void SetCaster(Unit whoCast){
+        caster = whoCast;
     }
 
   

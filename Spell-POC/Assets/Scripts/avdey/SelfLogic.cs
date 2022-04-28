@@ -5,19 +5,31 @@ using UnityEngine;
 public class SelfLogic : SpellLogic
 {
 
+    
 
     public override async Task ActivateLogic()
     {
         //base.ActivateLogic();
-        print("self logic 1");
-        await Task.Delay(3000);
 
-        print("self logic 2");
+        print("StartSelfLogic");
+        
+        await Task.Delay(3000);
+        //
+        /*
+            var spellOwner = _logicOwner.mainSpell.caster;
+            _logicOwner._spellActions;
+        */
+       // _logicOwner.Owner.caster;
+        print("EndSelfLogic");
     }
 
     public override Vector3 GetCastPosition()
     {
-        throw new System.NotImplementedException();
+        return _castObject.transform.position;
+    }
+
+    public override Vector3 GetCastDirection(){
+        return Vector3.up;
     }
 
 
